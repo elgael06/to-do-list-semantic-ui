@@ -1,17 +1,26 @@
 const { TaskModel } = require("../models/TaskDocument");
 
 const taskModel =  {
-     id:1,
-     title:'',
-     body:'',
-     status:''
+     _id:1,
+     "title":"",
+     "body":"",
+     "status":false
 };
 
 
 exports.allTask =  (req, res) => {
      const task =  TaskModel.find({});
      task.then(data=>{
-          console.log('task: ',data);
+          res.json({'data':data,'status':true,'message':'successfully'});
+     }).catch(e=>{
+          console.log(e);          
+          res.json({'data':[],'status':false,'message':e.toString()});
+     });
+};
+exports.allTaskStatus =  (req, res) => {
+     let status= req.query.status;
+     const task =  TaskModel.find({status:status});
+     task.then(data=>{
           res.json({'data':data,'status':true,'message':'successfully'});
      }).catch(e=>{
           console.log(e);          
@@ -21,7 +30,7 @@ exports.allTask =  (req, res) => {
 
 exports.taskId =  (req, res) => {
      let id = req.params.id;
-     const task =  TaskModel.findById(id);
+     const task =  TaskModel.findOne({_id:id});
      task.then(data=>{
           console.log('task: ',data);
           res.json({'data':data,'status':true,'message':'successfully'});
@@ -31,17 +40,45 @@ exports.taskId =  (req, res) => {
 };
 
 exports.taskInsert =  (req, res) => {
-     let task = req.body.task || taskModel;
-     res.json({'data':{...task,id:0},'status':true});
+     console.log(req.body);
+     let taskUpdate = req.body || taskModel;
+     const task     = TaskModel();
+     task.title     = taskUpdate.title;
+     task.body      = taskUpdate.body;
+     task.status    = true;
+
+     task.save().then(data=>{          
+          res.json({'data':data,'status':true,'message':'successfully'});
+     }).catch(e=>{
+          res.status = 404;
+          res.json({'data':null,'status':false,'message':e.toString()});
+     });
 };
 
 exports.taskIdUpdate =  (req, res) => {
-     let id = req.params.id;
-     let task = req.body.task || taskModel;
-     res.json({'data':{...task,id},'status':true});
+
+     console.log(req['body']);
+     let id         = req.params.id;
+     let taskUpdate = req['body'] || taskModel;
+     let task       = TaskModel.findOneAndUpdate({_id:id},{
+          title : taskUpdate.title,
+          body  : taskUpdate.body,
+          status  : taskUpdate.status
+     });
+     task.then(data=>{
+          res.json({'data':data,'status':true,'message':'successfully'});
+     }).catch(e=>{
+          res.json({'data':null,'status':false,'message':e.toString()});
+     });
 };
 
 exports.taskIdDelete =  (req, res) => {
      let id = req.params.id;
-     res.json({'data':{...taskModel,id},'status':true});
+     const task =  TaskModel.findOneAndDelete({_id:id});
+     task.then(data=>{          
+          res.json({'data':data,'status':true,'message':'successfully'});
+     }).catch(e=>{
+          res.status = 404;
+          res.json({'data':null,'status':false,'message':e.toString()});
+     });
 };
