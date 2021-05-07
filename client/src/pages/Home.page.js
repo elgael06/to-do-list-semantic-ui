@@ -1,12 +1,12 @@
-
+import InputBuscarNota from '../App/InputBuscarNota';
+import TareasForm from '../components/molecules/TareasForm';
 
 const HomePage = () => {
 
-    return (
-        <>
-            <h3>Home page</h3>
-        </>
-    );
+    return (<>            
+        <InputBuscarNota />
+        <TareasForm />
+    </>);
 }
 
 export default HomePage;
