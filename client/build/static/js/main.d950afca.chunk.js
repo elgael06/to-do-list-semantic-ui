@@ -1,2 +1,0 @@
-(this.webpackJsonpfront_end=this.webpackJsonpfront_end||[]).push([[0],{9:function(e,n,t){"use strict";t.r(n);var c=t(1),r=t.n(c),s=t(3),o=t.n(s),d=t(0);var i=function(){return Object(d.jsx)("div",{className:"App",children:Object(d.jsx)("h3",{children:"Hola"})})};o.a.render(Object(d.jsx)(r.a.StrictMode,{children:Object(d.jsx)(i,{})}),document.getElementById("root"))}},[[9,1,2]]]);
-//# sourceMappingURL=main.d950afca.chunk.js.map
