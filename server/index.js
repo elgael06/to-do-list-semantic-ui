@@ -14,14 +14,11 @@ app.get('/hola', (req, res) => {
 app.use(express.static('./client/build'));
 
 // routes api.
-/**
- * get methods
- */
 app.get('/api/Task/',task.allTask);
 app.get('/api/task/:id',task.taskId);
-/**
- * post methods
- */
+app.put('/api/Task/',task.taskInsert);
+app.post('/api/Task/:id',task.taskIdUpdate);
+app.delete('/api/Task/:id',task.taskDelete);
 
 
 app.listen(port, () => {
