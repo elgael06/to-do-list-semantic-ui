@@ -1,6 +1,6 @@
-import {Grid,Form,Button,Input,Card,Icon} from 'semantic-ui-react';
+import {Grid,Form,Input} from 'semantic-ui-react';
 
-export default ()=>{
+const InputBuscarNota = ()=>{
     
     return(<Grid>
         <Grid.Column textAlign='center' mobile={16} tablet={16} computer={16}>
@@ -15,3 +15,5 @@ export default ()=>{
         </Grid.Column>
     </Grid>);
 }
+
+export default InputBuscarNota;

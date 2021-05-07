@@ -1,6 +1,6 @@
 import {Grid,Form,Button,Input,Icon} from 'semantic-ui-react';
 
-export default ()=>{
+const InputCrear = ()=>{
 
     return (<Grid.Column textAlign='center' mobile={16} tablet={16} computer={8}>
         <Form>
@@ -17,3 +17,5 @@ export default ()=>{
         </Form>
     </Grid.Column>);
 }
+
+export default InputCrear;
