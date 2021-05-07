@@ -1,10 +1,10 @@
-
+import Layout from '../components/organisms/Layout';
+import HomePage from '../pages/Home.page';
 
 function App() {
-  return (
-    <div className="App">
-     <h3>Hola</h3>
-    </div>
+  return (<Layout >
+    <HomePage />
+  </Layout>
   );
 }
 
