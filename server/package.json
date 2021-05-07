@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "name": "to-do-list-semantic-ui",
+  "version": "1.0.0",
+  "description": "to do list app using semantic-ui interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "elgael06@gmail.com",
+  "license": "Apache-2.0"
+}
