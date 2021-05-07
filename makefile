@@ -4,7 +4,7 @@
 ###
 
 serve: # start the express server.
-	node ./server/index.js 
+	node ./index.js 
 
 front: # start the dev mode of front.  
 	cd client/ && npm start

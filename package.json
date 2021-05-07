@@ -8,8 +8,12 @@
   "description": "to do list app using semantic-ui interface",
   "main": "index.js",
   "scripts": {
+    "start":"node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "elgael06@gmail.com",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "engines": {
+    "node": "16.x"
+  }
 }
