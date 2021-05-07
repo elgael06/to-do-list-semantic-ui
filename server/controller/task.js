@@ -9,17 +9,20 @@ const taskModel =  {
 
 
 exports.allTask =  (req, res) => {
+
      const task =  TaskModel.find({});
+
      task.then(data=>{
           res.json({'data':data,'status':true,'message':'successfully'});
-     }).catch(e=>{
-          console.log(e);          
-          res.json({'data':[],'status':false,'message':e.toString()});
+     }).catch(e=>{    
+          res.json({'data':null,'status':false,'message':e.toString()});
      });
 };
 exports.allTaskStatus =  (req, res) => {
+
      let status= req.query.status;
      const task =  TaskModel.find({status:status});
+
      task.then(data=>{
           res.json({'data':data,'status':true,'message':'successfully'});
      }).catch(e=>{
@@ -29,10 +32,11 @@ exports.allTaskStatus =  (req, res) => {
 };
 
 exports.taskId =  (req, res) => {
+
      let id = req.params.id;
      const task =  TaskModel.findOne({_id:id});
-     task.then(data=>{
-          console.log('task: ',data);
+
+     task.then(data=>{          
           res.json({'data':data,'status':true,'message':'successfully'});
      }).catch(e=>{        
           res.json({'data':[],'status':false,'message':e.toString()});
@@ -40,7 +44,7 @@ exports.taskId =  (req, res) => {
 };
 
 exports.taskInsert =  (req, res) => {
-     console.log(req.body);
+
      let taskUpdate = req.body || taskModel;
      const task     = TaskModel();
      task.title     = taskUpdate.title;
@@ -57,14 +61,14 @@ exports.taskInsert =  (req, res) => {
 
 exports.taskIdUpdate =  (req, res) => {
 
-     console.log(req['body']);
      let id         = req.params.id;
-     let taskUpdate = req['body'] || taskModel;
+     let taskUpdate = req.body || taskModel;
      let task       = TaskModel.findOneAndUpdate({_id:id},{
-          title : taskUpdate.title,
-          body  : taskUpdate.body,
-          status  : taskUpdate.status
+          title     : taskUpdate.title,
+          body      : taskUpdate.body,
+          status    : taskUpdate.status
      });
+
      task.then(data=>{
           res.json({'data':data,'status':true,'message':'successfully'});
      }).catch(e=>{
@@ -73,8 +77,10 @@ exports.taskIdUpdate =  (req, res) => {
 };
 
 exports.taskIdDelete =  (req, res) => {
-     let id = req.params.id;
+
+     let id     = req.params.id;
      const task =  TaskModel.findOneAndDelete({_id:id});
+
      task.then(data=>{          
           res.json({'data':data,'status':true,'message':'successfully'});
      }).catch(e=>{
