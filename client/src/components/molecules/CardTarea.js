@@ -26,7 +26,11 @@ const CardTarea = ({
                 value={body}
                 onChange={handleChange}
             /> 
-          :<p style={{textDecoration: !status ? 'line-through grey 5px' : '',fontSize:17}}>{body}</p> }</Comment.Text>
+          :<label style={{
+              textDecoration: !status ? 'line-through #00000030 5px' : '',
+              color:!status ? 'grey': '#000',
+              fontSize:17
+              }}>{body}</label> }</Comment.Text>
 
           <Comment.Actions style={{textAlign:'end'}}>
             { active ? <>            
