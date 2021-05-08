@@ -25,15 +25,14 @@ const CardTarea = ({
                 placeholder='Buscar tarea...'
                 value={body}
                 onChange={handleChange}
-            >
-                <input />
-            </Input> 
-          :<p style={{textDecoration: !status?'line-through grey 5px' : '',fontSize:17}}>{body}</p> }</Comment.Text>
+            /> 
+          :<p style={{textDecoration: !status ? 'line-through grey 5px' : '',fontSize:17}}>{body}</p> }</Comment.Text>
+
           <Comment.Actions style={{textAlign:'end'}}>
             { active ? <>            
                 <Button color='youtube' size='tiny' onClick={cancel}>Cancel</Button> 
                 <Button color='blue'size='tiny' onClick={save}>Guardar</Button> 
-            </> : <div style={{fontSize:15}}>
+            </> : <div style={{fontSize:17}}>
                 <Icon onClick={onSelect} color='blue' name='edit'  />
                 <Icon onClick={onDelete} color='red' name='trash' />
             </div>}
