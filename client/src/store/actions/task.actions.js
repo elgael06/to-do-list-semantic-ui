@@ -21,7 +21,6 @@ export const changeFilter = (value='' )=>{
 export const loadList = () =>{
     return async dispatch => {
         const res = await getAllTask();
-        console.log(res);
         dispatch({
             type:OBTENER_TAREAS,
             payload:res.data            

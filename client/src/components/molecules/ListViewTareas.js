@@ -13,7 +13,6 @@ const ListViewTareas = ()=>{
         dispatch(acticarEdicionTarea(value));
     }
     const selectDelete = (value) => {
-        console.log(value);
             dispatch(confirmDelete(value));
     }
     const cancelarEdicion = () => {
