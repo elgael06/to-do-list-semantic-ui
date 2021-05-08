@@ -1,5 +1,5 @@
-import { getAllTask, putTask } from "../../api/tareas.api";
-import { EDITAR_TAREA, FILTRO_TAREAS, OBTENER_TAREAS, TEXTO_NUEVA_TAREA } from "../types"
+import { getAllTask, postTask, putTask } from "../../api/tareas.api";
+import { EDITAR_TAREA, FILTRO_TAREAS, OBTENER_TAREAS, TEXTO_NUEVA_TAREA, VACIAR_EDITAR_TAREA } from "../types"
 
 
 export const changeFilter = (value='' )=>{
@@ -52,5 +52,21 @@ export const acticarEdicionTarea = (tarea) => {
     return{
         type:EDITAR_TAREA,
         payload:tarea
+    }
+}
+
+export const cancelEditTask = () => {
+    return dispatch=>{
+        dispatch(loadList());
+        dispatch({type:VACIAR_EDITAR_TAREA});        
+    }
+}
+
+export const updateTask = (value) => {
+
+    return async dispatch =>{
+        const {data, message} = await postTask(value);
+        console.log(message,data);
+        dispatch(cancelEditTask());
     }
 }

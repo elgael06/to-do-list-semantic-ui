@@ -24,8 +24,8 @@ const InputCrear = ()=>{
                 onChange={e=>dispatch(handleTextTareaNueva(e.target.value))}
                 >
                 <Icon position='left' name='edit' />
-                <input />
-                <Button disabled={task.body===''} color='blue'  onClick={onSave} >agregar</Button>
+                <input  id='text-create-task' />
+                <Button disabled={task.body===''} color='green'  onClick={onSave} >agregar</Button>
             </Input>
         </Form>
     </Grid.Column>);
