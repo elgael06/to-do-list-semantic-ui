@@ -1,4 +1,4 @@
-import { getAllTask, postTask, putTask } from "../../api/tareas.api";
+import { deleteTaskId, getAllTask, postTask, putTask } from "../../api/tareas.api";
 import { EDITAR_TAREA, FILTRO_TAREAS, OBTENER_TAREAS, TEXTO_NUEVA_TAREA, VACIAR_EDITAR_TAREA } from "../types"
 
 
@@ -62,11 +62,27 @@ export const cancelEditTask = () => {
     }
 }
 
+export const changeStatus = (value) => {
+    return dispatch =>{
+        value.status = !value.status; 
+        dispatch(updateTask(value));
+    }
+}
+
 export const updateTask = (value) => {
 
     return async dispatch =>{
         const {data, message} = await postTask(value);
         console.log(message,data);
         dispatch(cancelEditTask());
+    }
+}
+
+export const deleteTask = (id) => {
+    return async dispatch => {
+        const {data, message} = await deleteTaskId(id);
+        console.log(data,message);
+        dispatch(cancelEditTask());
+        dispatch(loadList()); 
     }
 }

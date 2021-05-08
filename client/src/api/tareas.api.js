@@ -19,6 +19,7 @@ export const postTask = async (task) => {
     return  data;
 }
 
-export const deleteTaskId = () => {
-    
+export const deleteTaskId = async (id) => {
+    const {data} = await axios.delete(`/api/Task/${id}`);
+    return  data;
 }

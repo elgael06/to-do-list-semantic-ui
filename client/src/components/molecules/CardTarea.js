@@ -9,14 +9,14 @@ const CardTarea = ({
     onDelete=e=>{},
     handleChange=e=>{},
     cancel=()=>{},
+    handleChangeStatus=()=>{},
     active=true
 })=> {
 
     return ( <Comment id={`${id}`}>
         <Comment.Content>
-          <Comment.Author as='a'>Tarea </Comment.Author>
           <Comment.Metadata style={{position:'initial',float:'right'}}>
-                <Checkbox  slider checked={!status} />
+                <Checkbox onClick={handleChangeStatus} slider checked={!status} />
           </Comment.Metadata>          
           <Comment.Text  >{
           active?
@@ -28,7 +28,7 @@ const CardTarea = ({
             >
                 <input />
             </Input> 
-          :body}</Comment.Text>
+          :<p style={{textDecoration: !status?'line-through grey 5px' : '',fontSize:17}}>{body}</p> }</Comment.Text>
           <Comment.Actions style={{textAlign:'end'}}>
             { active ? <>            
                 <Button color='youtube' size='tiny' onClick={cancel}>Cancel</Button> 
