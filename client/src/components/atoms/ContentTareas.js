@@ -1,11 +1,11 @@
-import {Grid,Card} from 'semantic-ui-react';
+import {Grid,Comment} from 'semantic-ui-react';
 
 const ContentTareas = ({children})=>{
 
     return (<Grid.Column textAlign='center' mobile={16} tablet={16} computer={8}>
-        <Card.Group>
+        <Comment.Group>
             {children}
-        </Card.Group>
+        </Comment.Group>
     </Grid.Column>);
 }
 export default ContentTareas;

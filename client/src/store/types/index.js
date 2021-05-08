@@ -2,6 +2,7 @@
 
 
 export const OBTENER_TAREAS         = 'OBTENER_TAREAS';
+export const FILTRO_TAREAS          = 'FILTRO_TAREAS';
 export const TEXTO_NUEVA_TAREA      = 'TEXTO_NUEVA_TAREA';
 export const EDITAR_TAREA           = 'EDITAR_TAREA';
 export const VACIAR_EDITAR_TAREA    = 'VACIAR_EDITAR_TAREA';

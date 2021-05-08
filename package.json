@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "mongoose": "^5.12.7"
   },
@@ -8,7 +9,7 @@
   "description": "to do list app using semantic-ui interface",
   "main": "index.js",
   "scripts": {
-    "start":"node ./index.js",
+    "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

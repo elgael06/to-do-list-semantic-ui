@@ -5,7 +5,7 @@ import './styles/layout.css';
 
 const Layout = ({children}) => {
 
-    return(<Container textAlign='center'>
+    return(<Container >
         <TitleApp />
         {children}
     </Container>);

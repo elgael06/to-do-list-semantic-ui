@@ -1,4 +1,4 @@
-import { OBTENER_TAREAS, STATUS_EDITAR_TAREA, TEXTO_EDITAR_TAREA, TEXTO_NUEVA_TAREA } from "../types";
+import { EDITAR_TAREA, ELIMINAR_TAREA, FILTRO_TAREAS, OBTENER_TAREAS, STATUS_EDITAR_TAREA, TEXTO_EDITAR_TAREA, TEXTO_NUEVA_TAREA, VACIAR_EDITAR_TAREA } from "../types";
 
 
 
@@ -10,6 +10,7 @@ export const task = {
 
 export const initialState = {
     filter:'',
+    loadingFilter:false,
     list:[],
     task,
     edit:false,
@@ -30,6 +31,12 @@ export const tareas = (
                 ...state,
                 list:actions.payload
             };
+        case FILTRO_TAREAS:
+            return{
+                ...state,
+                loadingFilter:actions.payload.status,
+                filter:actions.payload.text
+            }
         case TEXTO_NUEVA_TAREA:
             return {
                 ...state,

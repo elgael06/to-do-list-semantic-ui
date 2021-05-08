@@ -47,7 +47,6 @@ exports.taskInsert =  (req, res) => {
 
      let taskUpdate = req.body || taskModel;
      const task     = TaskModel();
-     task.title     = taskUpdate.title;
      task.body      = taskUpdate.body;
      task.status    = true;
 
@@ -64,7 +63,6 @@ exports.taskIdUpdate =  (req, res) => {
      let id         = req.params.id;
      let taskUpdate = req.body || taskModel;
      let task       = TaskModel.findOneAndUpdate({_id:id},{
-          title     : taskUpdate.title,
           body      : taskUpdate.body,
           status    : taskUpdate.status
      });
