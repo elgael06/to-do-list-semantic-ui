@@ -29,10 +29,10 @@ const ModalEliminar = () => {
           </p>
         </Modal.Content>
         <Modal.Actions>
-          <Button basic color='red' inverted onClick={cancel}>
+          <Button basic color='blue' inverted onClick={cancel}>
             <Icon name='remove' /> NO
           </Button>
-          <Button color='green' inverted onClick={confirm}>
+          <Button color='red' inverted onClick={confirm}>
             <Icon name='checkmark' /> SI
           </Button>
         </Modal.Actions>

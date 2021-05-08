@@ -1,4 +1,4 @@
-import { deleteTaskId, getAllTask, postTask, putTask } from "../../api/tareas.api";
+import { deleteTaskId, getAllTask, getcompleteTask, postTask, putTask } from "../../api/tareas.api";
 import { CANCELAR_ELIMINAR_TAREA, EDITAR_TAREA, ELIMINAR_TAREA, FILTRO_TAREAS, OBTENER_TAREAS, TEXTO_NUEVA_TAREA, VACIAR_EDITAR_TAREA } from "../types"
 
 
@@ -28,6 +28,18 @@ export const loadList = () =>{
         });
     }
 }
+
+export const loadListFinish = () =>{
+    return async dispatch => {
+        const res = await getcompleteTask();
+        console.log(res);
+        dispatch({
+            type:OBTENER_TAREAS,
+            payload:res.data            
+        });
+    }
+}
+
 
 export const handleTextTareaNueva = (value='') => {
     return {

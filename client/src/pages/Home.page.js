@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import TareasForm from '../components/molecules/TareasForm';
 import { loadList } from '../store/actions/task.actions';
+import SteperTask from '../components/molecules/SteperTask';
 
 const HomePage = () => {
     const dispatch = useDispatch();
@@ -10,7 +11,8 @@ const HomePage = () => {
         dispatch(loadList());
     });
 
-    return (<>            
+    return (<>          
+        <SteperTask />  
         <TareasForm />
     </>);
 }

@@ -6,8 +6,9 @@ export const getAllTask = async () => {
     return  data;
 }
 
-export const getIdTask = () => {
-
+export const getcompleteTask = async () => {
+    const {data} = await axios.get('/api/Task/check?status=false');
+    return  data;
 }
 
 export const putTask = async (task) => {
