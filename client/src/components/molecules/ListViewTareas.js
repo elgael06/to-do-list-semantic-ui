@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { acticarEdicionTarea, cancelEditTask, changeStatus, deleteTask, updateTask } from '../../store/actions/task.actions';
+import { acticarEdicionTarea, cancelEditTask, changeStatus, confirmDelete, updateTask } from '../../store/actions/task.actions';
 import CardTarea from './CardTarea';
 import ContentTareas from '../atoms/ContentTareas';
 import { TEXTO_EDITAR_TAREA } from '../../store/types';
@@ -14,8 +14,7 @@ const ListViewTareas = ()=>{
     }
     const selectDelete = (value) => {
         console.log(value);
-        if(window.confirm(`Eliminar tarea : ${value.body}`));
-            dispatch(deleteTask(value._id));
+            dispatch(confirmDelete(value));
     }
     const cancelarEdicion = () => {
         dispatch(cancelEditTask());

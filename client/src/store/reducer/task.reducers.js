@@ -1,4 +1,4 @@
-import { EDITAR_TAREA, ELIMINAR_TAREA, FILTRO_TAREAS, OBTENER_TAREAS, STATUS_EDITAR_TAREA, TEXTO_EDITAR_TAREA, TEXTO_NUEVA_TAREA, VACIAR_EDITAR_TAREA } from "../types";
+import { CANCELAR_ELIMINAR_TAREA, EDITAR_TAREA, ELIMINAR_TAREA, FILTRO_TAREAS, OBTENER_TAREAS, STATUS_EDITAR_TAREA, TEXTO_EDITAR_TAREA, TEXTO_NUEVA_TAREA, VACIAR_EDITAR_TAREA } from "../types";
 
 
 
@@ -79,6 +79,13 @@ export const tareas = (
                 edit:false,
                 editTask:actions.payload,
                 delete:true
+            };
+        case CANCELAR_ELIMINAR_TAREA:
+            return{
+                ...state,
+                edit:false,
+                editTask:task,
+                delete:false
             };
         default:
             return state;
